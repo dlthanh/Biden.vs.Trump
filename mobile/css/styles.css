@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+img {
+    vertical-align: middle;
+}
+.emag-cover {
+    margin-bottom: 30px;
+}
+.emag-cover img {
+    width: 100%;
+}
+.emag-img {
+    width: 100%;
+    margin-bottom: 30px;
+}
+.emag-content > p {
+    font-family: 'NotoSerif', serif;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+.emag-sapo {
+    font-weight: 700;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 60px!important;
+}
+.emag-title {
+    font-family: 'Americana'!important;
+    font-size: 18px!important;
+    text-align: center;
+    margin-top: 30px;
+}
+.trump {
+    background-color: #f9ece7;
+    padding: 15px;
+    margin-bottom: 5px;
+}
+.biden {
+    background-color: #e7eff9;
+    padding: 15px;
+    margin-bottom: 5px;
+}
+.trump img {
+    width: 80px;
+    float: left;
+    margin-right: 15px;
+}
+.biden img {
+    width: 80px;
+    float: right;
+    margin-left: 15px;
+}
+.trump .sub-title,
+.biden .sub-title {
+    font-style: 18px;
+    font-family: 'Americana';
+    margin-bottom: 5px!important;
+}
+.trump p,
+.biden p {
+    font-family: 'NotoSerif', serif;
+    font-size: 16px;
+    line-height: 24px;
+}
+.trump p:not(:last-child),
+.biden p:not(:last-child) {
+    margin-bottom: 30px;
+}
+.emag-image {
+    width: 100%;
+    margin-bottom: 5px;
+}
+.emag-credit {
+    margin-top: 30px;
+    margin-bottom: 60px;
+    padding: 0 15px;
+    font-family: 'Gotham';
+    font-size: 15px;
+    line-height: 24px;
+}

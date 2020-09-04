@@ -22,11 +22,38 @@
         };
 
         $(document).ready(function() {
+            // $('.emag-cover-title').css({
+            //     'transform': 'translate(0px, ' + ($(window).height() / 2) + 'px)'
+            // });
+
             $('.emag-sec-row').each(function() {
                 $(this).find('.emag-content').equalHeights()
             })
 
             new WOW().init();
+
+            $(window).scroll(function() {
+                var scrollTop = $(window).scrollTop();
+
+                if(scrollTop > 150) {
+                    $('.emag-bg').addClass('fixed');
+                } else {
+                    $('.emag-bg').removeClass('fixed');
+                }
+                
+                $('.emag-cover-title').css({
+                    'transform': 'translate(0px, ' + (($(window).height() / 2) - scrollTop * 1.5) + 'px)'
+                });
+
+                $('.emag-sec-cover-desc').each(function() {
+                    var parentHeight = $(this).parents('.emag-sec-cover').height()
+                    var offsetParent = $(this).parents('.emag-sec-cover').offset().top - parentHeight
+
+                    $(this).css({
+                        'transform': 'translate(0px, ' + (offsetParent - scrollTop + parentHeight) + 'px)'
+                    });
+                })
+            });
         })
     </script>
 </head>
@@ -38,13 +65,27 @@
             <img src="images/bg.png" alt="" class="emag-bg">
         </div>
 
+        <div class="emag-desc">
+            <div class="w660">
+                <p>Cuộc bầu cử ngày 3/11, cử tri Mỹ sẽ phải lựa chọn giữa đương kim Tổng thống, ứng viên đảng Cộng hòa Donald Trump với đối thủ Joe Biden của đảng Dân chủ. Ông Trump, 74 tuổi và ông Biden, 77 tuổi mang những quan điểm trái ngược rõ rệt và cách tiếp cận khác nhau trong việc giải quyết một số vấn đề nổi cộm nhất mà nước Mỹ phải đối mặt, từ kinh tế tới địa chính trị….</p>
+
+                <p>Dưới đây là cái nhìn chi tiết về chính sách và chương trình nghị sự của hai ứng viên tổng thống Mỹ trong 7 lĩnh vực chính.</p>
+            </div>
+        </div>
+
         <div class="emag-section">
             <div class="emag-sec-cover">
                 <img src="images/cover-1.jpg" alt="">
-            </div>
 
-            <div class="emag-sec-sapo w720">
-                Đại dịch Covid-19 khiến hàng chục triệu người Mỹ rơi vào cảnh mất việc làm, chấm dứt chuỗi tăng trưởng dài nhất từng được ghi nhận trong lịch sử và tác động mạnh tới cơ hội tái đắc cử của Tổng thống Trump.
+                <div class="emag-sec-cover-desc">
+                    <img src="images/title-1.png" alt="" class="emag-sec-cover-title">
+
+                    <div class="emag-sec-sapo">
+                        <div class="w720">
+                            Đại dịch Covid-19 khiến hàng chục triệu người Mỹ rơi vào cảnh mất việc làm, chấm dứt chuỗi tăng trưởng dài nhất từng được ghi nhận trong lịch sử và tác động mạnh tới cơ hội tái đắc cử của Tổng thống Trump.
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="emag-sec-main">
@@ -53,7 +94,7 @@
                 <img src="images/caption.png" alt="" class="emag-cation">
 
                 <div class="emag-sec-row">
-                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">Thận trọng</div>
 
                         <div class="emag-content">
@@ -61,7 +102,7 @@
                         </div>
                     </div>
 
-                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">Mở cửa càng nhanh càng tốt</div>
 
                         <div class="emag-content">
@@ -73,7 +114,7 @@
                 <div class="emag-sec-title">Đưa nền kinh tế trở lại đúng hướng</div>
 
                 <div class="emag-sec-row">
-                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">Chi thêm hàng nghìn tỷ</div>
 
                         <div class="emag-content">
@@ -83,7 +124,7 @@
                         </div>
                     </div>
 
-                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">Kích thích một lần</div>
 
                         <div class="emag-content">
@@ -97,7 +138,7 @@
                 <div class="emag-sec-title">Thuế và lương</div>
 
                 <div class="emag-sec-row">
-                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">Tăng lương tối thiểu</div>
 
                         <div class="emag-content">
@@ -109,7 +150,7 @@
                         </div>
                     </div>
 
-                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">Không tăng thuế</div>
 
                         <div class="emag-content">
@@ -125,7 +166,7 @@
                 <img src="images/img-1.jpg" alt="" class="emag-sec-img">
 
                 <div class="emag-sec-row">
-                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">Thúc đẩy sản xuất trong nước</div>
 
                         <div class="emag-content">
@@ -139,7 +180,7 @@
                         </div>
                     </div>
 
-                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">Thúc đẩy sản xuất trong nước</div>
 
                         <div class="emag-content">
@@ -153,7 +194,7 @@
                 <div class="emag-sec-title">Đầu tư xanh</div>
 
                 <div class="emag-sec-row">
-                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">2.000 tỷ USD cho 4 năm</div>
 
                         <div class="emag-content">
@@ -161,7 +202,7 @@
                         </div>
                     </div>
 
-                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">Không đề cao</div>
 
                         <div class="emag-content">
@@ -175,19 +216,25 @@
         <div class="emag-section">
             <div class="emag-sec-cover">
                 <img src="images/cover-2.jpg" alt="">
-            </div>
 
-            <div class="emag-sec-sapo w720">
-                Ông Trump và ông Biden có quan điểm trái ngược nhau về tư pháp hình sự và phân biệt chủng tộc. Nổi lên trong cuộc bầu cử năm 2020, vấn đề vốn ít được để tâm này lại có thể đóng vai trò quan trọng cho các ứng viên trong cuộc đua vào Nhà Trắng.
+                <div class="emag-sec-cover-desc">
+                    <img src="images/title-2.png" alt="" class="emag-sec-cover-title">
+
+                    <div class="emag-sec-sapo">
+                        <div class="w720">
+                            Ông Trump và ông Biden có quan điểm trái ngược nhau về tư pháp hình sự và phân biệt chủng tộc. Nổi lên trong cuộc bầu cử năm 2020, vấn đề vốn ít được để tâm này lại có thể đóng vai trò quan trọng cho các ứng viên trong cuộc đua vào Nhà Trắng.
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="emag-sec-main">
                 <div class="emag-sec-title">Đa dạng và hòa nhập</div>
 
                 <img src="images/caption.png" alt="" class="emag-cation">
-                
+
                 <div class="emag-sec-row">
-                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">Hứa hẹn cho sự đa dạng</div>
 
                         <div class="emag-content">
@@ -195,7 +242,7 @@
                         </div>
                     </div>
 
-                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">Ít cố vấn da màu</div>
 
                         <div class="emag-content">
@@ -207,7 +254,7 @@
                 <div class="emag-sec-title">Chính sách</div>
 
                 <div class="emag-sec-row">
-                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">Cải cách</div>
 
                         <div class="emag-content">
@@ -217,7 +264,7 @@
                         </div>
                     </div>
 
-                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">Pháp luật và mệnh lệnh</div>
 
                         <div class="emag-content">
@@ -233,7 +280,7 @@
                 <div class="emag-sec-title">Cải cách tư pháp hình sự</div>
 
                 <div class="emag-sec-row">
-                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">Ủng hộ</div>
 
                         <div class="emag-content">
@@ -243,7 +290,7 @@
                         </div>
                     </div>
 
-                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">Ủng hộ</div>
 
                         <div class="emag-content">
@@ -259,7 +306,7 @@
                 <div class="emag-sec-title">Giải quyết chênh lệch kinh tế chủng tộc</div>
 
                 <div class="emag-sec-row">
-                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">Đúng</div>
 
                         <div class="emag-content">
@@ -269,7 +316,7 @@
                         </div>
                     </div>
 
-                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s">
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
                         <div class="emag-sub">Tăng trưởng kinh tế cho tất cả</div>
 
                         <div class="emag-content">
@@ -277,6 +324,612 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="emag-section">
+            <div class="emag-sec-cover">
+                <img src="images/cover-3.jpg" alt="">
+
+                <div class="emag-sec-cover-desc">
+                    <img src="images/title-3.png" alt="" class="emag-sec-cover-title">
+
+                    <div class="emag-sec-sapo">
+                        <div class="w720">
+                            Chăm sóc sức khỏe là mối quan tâm hàng đầu của các cử tri Mỹ ngay cả trước khi đại dịch Covid-19 làm hơn 173.000 người Mỹ thiệt mạng. Cuộc khủng hoảng có thể làm sáng tỏ hơn nữa sự khác biệt lớn về chính sách chăm sóc sức khỏe giữa 2 ứng viên.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="emag-sec-main">
+                <div class="emag-sec-title">Obamacare</div>
+
+                <img src="images/caption.png" alt="" class="emag-cation">
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Ủng hộ</div>
+
+                        <div class="emag-content">
+                            <p>Thề hỗ trợ Đạo luật Bảo vệ Bệnh nhân và Chăm sóc Sức khỏe Hợp túi tiền, hay còn được gọi là Obamacare. Đề xuất kế hoạch chăm sóc sức khỏe tiêu tốn 750 tỷ USD trong 10 năm và số tiền này được lấy từ việc tăng thuế người giàu.</p>
+
+                            <p>Phản đối cách thức vận hành của đạo luật chăm sóc sức khỏe Medicare for All.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Không ủng hộ</div>
+
+                        <div class="emag-content">
+                            <p>Ông Trump đã sử dụng quyền hành pháp cũng như các quyết định của Tòa án để phá hủy Obamacare khi đắc cử Tổng thống Mỹ. Nhiều người Cộng hòa cũng đã cố gắng phá bỏ đạo luật này.</p>
+
+                            <p>Ông Trump chưa đề xuất một sự thay thế toàn diện cho Obamacare dù hứa sẽ xây dựng một hệ thống chăm sóc sức khỏe tốt hơn, ít tốn kém hơn.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emag-sec-title">Hạ giá thuốc</div>
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Ủng hộ</div>
+
+                        <div class="emag-content">
+                            <p>Ủng hộ một dự luật được Hạ viện, do người Dân chủ kiểm soát, thông qua vào năm ngoái cho phép chương trình bảo hiểm y tế Medicare thương lượng giá thuốc như các công ty bảo hiểm tư nhân đã làm. Chính quyền Trump tuyên bố sẽ phủ quyết dự luật và cho rằng nó sẽ khiến các nhà sản xuất thuốc dành ít tiền hơn cho nghiên cứu và phát triển.</p>
+
+                            <p>Hỗ trợ một số hình thức nhập thuốc theo đơn từ nước ngoài để hạ giá thành.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Ủng hộ</div>
+
+                        <div class="emag-content">
+                            <p>Đề xuất giá dựa trên giá thành một số loại dược phẩm ở nước ngoài, nơi thuốc thường rẻ hơn ở Mỹ, để hạ giá. Tuy nhiên, nỗ lực này đã bị đình trệ.</p>
+
+                            <p>Hỗ trợ một số hình thức nhập thuốc theo đơn từ nước ngoài để hạ giá thành.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emag-sec-title">Mở rộng các gói chăm sóc sức khỏe</div>
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Đúng</div>
+
+                        <div class="emag-content">
+                            <p>Đề xuất giảm độ tuổi đủ điều kiện tham gia Medicare từ 65 xuống 60. Một sự thay đổi như vậy có thể giúp 20 triệu người Mỹ có bảo hiểm.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Không</div>
+
+                        <div class="emag-content">
+                            <p>Áp đặt các điều kiện khác, bao gồm cả yêu cầu công việc và nhiều biện pháp khác, để nâng cao tiêu chuẩn hưởng bảo hiểm của một người. Các chuyên gia cho rằng nó sẽ khiến ít người được hưởng bảo hiểm hơn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="emag-section">
+            <div class="emag-sec-cover">
+                <img src="images/cover-4.jpg" alt="">
+
+                <div class="emag-sec-cover-desc">
+                    <img src="images/title-4.png" alt="" class="emag-sec-cover-title">
+
+                    <div class="emag-sec-sapo">
+                        <div class="w720">
+                            Cam kết gia tăng ngăn chặn nhập cư bất hợp pháp là trọng tâm chiến dịch tranh cử năm 2016 của ông Trump và nó vẫn là ưu tiên hàng đầu trong chương trình nghị sự của ông tại Nhà Trắng. Ông Biden thì hứa hẹn sẽ loại bỏ hầu hết các chính sách đó và đưa ra cách làm của riêng mình nếu trở thành Tổng thống Mỹ.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="emag-sec-main">
+                <div class="emag-sec-title">Hạn chế nhập cư trong đại dịch Covid-19</div>
+
+                <img src="images/caption.png" alt="" class="emag-cation">
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Phản đối</div>
+
+                        <div class="emag-content">
+                            <p>Trong khi ông Trump hạn chế nhập cư với một số người đang tìm kiếm “thẻ xanh” để trở thành thường trú nhân của nước Mỹ, ông Biden đã đăng đàn nói rằng Tổng thống đang mượn đại dịch để cấm người nhập cư. Bản thân ông Biden khẳng định rằng những người nhập cư giúp nền kinh tế Mỹ phát triển và tạo ra việc làm.</p>
+
+                            <p>Ông Biden cũng tuyên bố sẽ tạm ngừng những chính sách trục xuất người nhập cư của Chính quyền Trump trong 100 ngày kể từ sau khi nhậm chức. Tuy nhiên, ông Biden không đề cập tới các quy tắc về qua lại biên giới trong đại dịch Covid-19.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Đang thực hiện</div>
+
+                        <div class="emag-content">
+                            <p>Ông Trump đang giảm đáng kể người nhập cư và du lịch vào Mỹ trong đại dịch Covid-19, lập luận rằng đó là những bước đi cần thiết vì sức khỏe cộng đồng và bảo vệ việc làm cho người lao động Mỹ.</p>
+
+                            <p>Ông Trump đã hạn chế nhiều lao động nước ngoài nhập cảnh vào Mỹ cũng như những người tìm kiếm thẻ xanh. Dịch bệnh khiến ông Trump trục xuất nhanh chóng những người bị bắt vì nhập cư bất hợp pháp ở biên giới Mỹ - Mexico khỏi lãnh thổ nước Mỹ.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emag-sec-title">Giấc mơ miền đất hứa</div>
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Bảo vệ trẻ nhập cư</div>
+
+                        <div class="emag-content">
+                            <p>Ông Biden là người phản đối kịch liệt nhất những quyết định “tàn nhẫn” của Chính quyền Trump trong việc chấm dứt DACA - chương trình bảo vệ trẻ đến Mỹ bất hợp pháp vốn được gọi với cái tên “những kẻ mộng mơ”.</p>
+
+                            <p>Thậm chí, ông Biden còn cam kết giúp những người vị thành niên nhập cư bất hợp pháp đủ điều kiện được học đại học và mở đường cho việc trở thành công dân Mỹ.</p>
+
+                            <p>Đó là một phần của nỗ lực giúp những người nhập cư bất hợp pháp đang sống ở Mỹ, bao gồm cả những người vượt biên khi đã trưởng thành, cơ hội được thừa nhận.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Mạnh tay trục xuất</div>
+
+                        <div class="emag-content">
+                            <p>Hồi tháng 6, Tòa Tối cao Mỹ đã ra phán quyết chống lại quyết định năm 2017 của ông Trump về việc chấm dứt DACA.</p>
+
+                            <p>Phán quyết của Tòa Tối cao cho thấy quyết định chấm dứt chương trình của ông Trump là “tùy tiện và bất thường”, khiến Nhà Trắng phải tiếp tục cố gắng nếu muốn đạt được mục đích.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emag-sec-title">Bức tường biên giới Mỹ - Mexico</div>
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Phản đối</div>
+
+                        <div class="emag-content">
+                            <p>Hồi tháng 8, ông Biden nói rằng ông sẽ không phá bỏ bức tường biên giới được xây dựng dưới thời ông Trump nhưng sẽ ngừng xây thêm. Kế hoạch của ông Biden là chấm dứt việc dùng tiền của quân đội để xây dựng bức tường. Thay vào đó, tiền sẽ được dùng cho các mục đích khác, bao gồm cải thiện hệ thống sàng lọc tại các trung tâm nhập cảnh.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Ủng hộ</div>
+
+                        <div class="emag-content">
+                            <p>Chính quyền Trump đã hoàn thành 265 dặm của bức tường biên giới và dự kiến sẽ hoàn thành 450 dặm vào cuối năm nay. Mexico từ chối trả tiền và Mỹ phải chịu tất cả chi phí. Hàng tỷ USD trong số đó được lấy từ quỹ của Lầu Năm Góc.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <img src="images/img-4.jpg" alt="" class="emag-sec-img">
+
+                <div class="emag-sec-title">Tách trẻ em khỏi bố mẹ vì nhập cư bất hợp pháp</div>
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Thúc đẩy đoàn tụ gia đình</div>
+
+                        <div class="emag-content">
+                            <p>Ông Biden tuyên bố sẽ chấm dứt việc truy tố cha mẹ vì cho con nhập cư bất hợp pháp, cái mà ông mô tả là chiến thuật đe dọa, cũng như ưu tiên cho việc để trẻ em đoàn tụ với cha mẹ.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Chia cắt hàng nghìn gia đình</div>
+
+                        <div class="emag-content">
+                            <p>Với chính sách “không khoan nhượng” được đưa ra năm 2018, ông Trump tuyên bố truy tố những vụ vượt biên trái phép dẫn tới hàng nghìn trẻ em bị buộc tách khỏi cha mẹ và những người giám hộ hợp pháp khi họ bị giam giữ ở biên giới Mexico.</p>
+                            
+                            <p>Chính sách này được Chính quyền Tổng thống Trump mô tả là một biện pháp ngăn chặn người nhập cư trái phép. Tuy nhiên, sự phẫn nộ và phản ứng dữ dội khiến ông Trump phải ký sắc lệnh hành pháp chấm dứt nó. Dẫu vậy, chính quyền tiếp tục tách hàng nghìn trẻ em khỏi người thân sau khi vượt biên vào nước Mỹ.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emag-sec-title">Cấm đi lại</div>
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Phản đối</div>
+
+                        <div class="emag-content">
+                            <p>Hứa sẽ hủy bỏ các lệnh cấm và gọi chúng là hành vi lạm quyền được tạo ra để phân biệt đối xử với người nhập cư và người da màu.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Đang tiến hành</div>
+
+                        <div class="emag-content">
+                            <p>Ký sắc lệnh ban hành cấm nhập cư từ 7 quốc gia theo đạo Hồi, một động thái mà ông Biden và những người khác chỉ trích là phân biệt đối xử với người Hồi giáo.</p>
+                            
+                            <p>Một tòa án liên bang đã ngăn chặn lệnh cấm ban đầu nhưng năm 2018, Tòa Tối cao đã chấp nhận sau khi chúng được sửa đổi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="emag-section">
+            <div class="emag-sec-cover">
+                <img src="images/cover-5.jpg" alt="">
+
+                <div class="emag-sec-cover-desc">
+                    <img src="images/title-5.png" alt="" class="emag-sec-cover-title">
+
+                    <div class="emag-sec-sapo">
+                        <div class="w720">
+                            Cuộc chạy đua vào Nhà Trắng là thuốc thử của cử tri Mỹ với ông Biden, người ủng hộ các quy định về môi trường và ngoại giao để chống biến đổi khí hậu với ông Trump, người quyết tâm loại bỏ các chính sách đó.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="emag-sec-main">
+                <div class="emag-sec-title">Kế hoạch chống biến đổi khí hậu</div>
+
+                <img src="images/caption.png" alt="" class="emag-cation">
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Có</div>
+
+                        <div class="emag-content">
+                            <p>Đề xuất chi 2.000 tỷ USD trong nhiệm kỳ 4 năm đầu tiên của mình cho chống biến đổi khí hậu và đạt mục tiêu 100% điện sạch vào năm 2035. Chú ý tới những lời kêu gọi từ đảng Dân chủ trong việc chuyển đổi nhanh hơn việc sử dụng nhiên liệu hóa thạch sang các loại nhiên liệu sạch.</p>
+
+                            <p>Đây là kế hoạch tham vọng hơn so với ban đầu, khi ông Biden đặt mục tiêu chi 1,7 nghìn tỷ USD để đạt được mức phát thải ròng bằng 0 trong năm 2050.</p>
+
+                            <p>Hỗ trợ các nghiên cứu năng lượng hạt nhân tiên tiến.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Không</div>
+
+                        <div class="emag-content">
+                            <p>Không có kế hoạch chống biến đổi khí hậu trên trang web chiến dịch tranh cử của ông Trump nhưng phần năng lượng và môi trường nêu bật chính quyền của ông đã loại bỏ những chính sách của người tiền nhiệm Obama.</p>
+
+                            <p>Ông Trump từ chối các bằng chứng khoa học về khí hậu và đưa ra những tuyên bố sai lệch. Tuy nhiên, giống với ông Biden, ông Trump cũng ủng hộ phát triển các công nghệ năng lượng hạt nhân tiên tiến.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emag-sec-title">Cứng rắn hơn với khí thải ô tô</div>
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Ủng hộ</div>
+
+                        <div class="emag-content">
+                            <p>Muốn tăng cường các tiêu chuẩn với khí thải ô tô được tạo ra dưới thời Chính quyền Obama. Đề xuất khuyến khích các nhà sản xuất ô tô làm xe không phát thải, thúc đẩy một chương trình mua sắm liên bang cho phương tiện sạch và đặt mục tiêu tất cả xe buýt được sản xuất ở Mỹ không phát thải vào năm 2030.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Phản đối</div>
+
+                        <div class="emag-content">
+                            <p>Ông Trump gọi các tiêu chuẩn khí thải ô tô của Chính quyền Obama là “giết chết ngành” và thay thế chúng bằng những tiêu chuẩn thấp hơn.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emag-sec-title">Cấm than đá, dầu đá phiến</div>
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Dè dặt</div>
+
+                        <div class="emag-content">
+                            <p>Ông Biden chống lại sự thúc đẩy của một bộ phận người Dân chủ muốn áp đặt lệnh cấm trên toàn quốc với dầu đá phiến. Dầu đá phiến làm tăng lượng khí thải có liên quan tới biến đổi khí hậu nhưng tạo ra nhiều việc làm và cho phép Mỹ trở thành nhà xuất khẩu dầu và khí đốt hàng đầu thế giới.</p>
+
+                            <p>Hỗ trợ đầu tư vào các cộng đồng than bằng cách cung cấp các giải pháp thay thế cho công việc khai thác.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Không</div>
+
+                        <div class="emag-content">
+                            <p>Tuyên bố sẽ không đóng cửa các nhà máy than trong nhiệm kỳ của mình.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <img src="images/img-5.jpg" alt="" class="emag-sec-img">
+
+                <div class="emag-sec-title">Ngoại giao khí hậu</div>
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Ủng hộ</div>
+
+                        <div class="emag-content">
+                            <p>Ông Biden tuyên bố sẽ đưa Mỹ trở lại vai trò lãnh đạo toàn cầu về biến đổi khí hậu, đưa Mỹ trở lại các cuộc đàm phán và thúc đẩy các mục tiêu của Hiệp định Paris năm 2015, đưa các nước lại gần nhau để giảm thiểu nóng lên toàn cầu.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Quay lưng</div>
+
+                        <div class="emag-content">
+                            <p>Đưa ra quá trình để Mỹ, quốc gia phát thải khí nhà kính số 2 thế giới sau Trung Quốc, rời khỏi Hiệp định Paris vì “chúng quá tốn kém”.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="emag-section">
+            <div class="emag-sec-cover">
+                <img src="images/cover-6.jpg" alt="">
+
+                <div class="emag-sec-cover-desc">
+                    <img src="images/title-6.png" alt="" class="emag-sec-cover-title">
+
+                    <div class="emag-sec-sapo">
+                        <div class="w720">
+                            Ông Trump giành chiến thắng trong cuộc đua vào Nhà Trắng năm 2016 với lời hứa “nước Mỹ là trên hết”, lật ngược những gì ông tuyên bố là thỏa thuận thương mại không công bằng và buộc các đồng minh của Mỹ phải trả nhiều tiền hơn cho các biện pháp phòng thủ chung. Biden cam kết khôi phục lại vai trò lãnh đạo toàn cầu của Mỹ và đảo ngược nhiều hành động trong chính sách đối ngoại của ông Trump.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="emag-sec-main">
+                <div class="emag-sec-title">Quan hệ Mỹ - Trung</div>
+
+                <img src="images/caption.png" alt="" class="emag-cation">
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Áp lực toàn cầu lên Trung Quốc</div>
+
+                        <div class="emag-content">
+                            <p>Ông Biden gọi cách ông Trump xử lý đại dịch Covid-19 ở Mỹ là một sai lầm lịch sử. Ngoài ra, ông Biden cũng cho rằng Trung Quốc thích một Chính quyền Trump hỗn loạn, xa lánh các đồng minh và từ bỏ vai trò lãnh đạo toàn cầu của Mỹ.</p>
+
+                            <p>Ông Biden tuyên bố sẽ sửa chữa những điều này bằng cách gây áp lực đa phương lên Trung Quốc thông qua các mối quan hệ mới với các đồng minh của Mỹ.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Cứng rắn với Bắc Kinh</div>
+
+                        <div class="emag-content">
+                            <p>Khơi mào cuộc chiến thương mại với Trung Quốc trước khi đạt thỏa thuận giai đoạn 1 vào tháng Giêng, ông Trump đã đóng cánh cửa đàm phán giai đoạn 2 vì “không hài lòng với cách Bắc Kinh xử lý đại dịch”.</p>
+
+                            <p>Vào tháng 7, ông Trump đã ban hành một lệnh hành pháp, chấm dứt đối xử thương mại đặc biệt với Đặc khu hành chính Hồng Kông sau khi Bắc Kinh áp đặt luật An ninh Quốc gia đối với thuộc địa cũ của Anh. Ông Trump cũng đột ngột yêu cầu Trung Quốc đóng cửa Tổng lãnh sự quán ở Houston vì cáo buộc làm gián điệp.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emag-sec-title">Duy trì quân đội Mỹ ở Trung Đông</div>
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Có nhưng thu hẹp dần</div>
+
+                        <div class="emag-content">
+                            <p>Đề xuất giảm sự hiện diện của quân đội Mỹ trong khu vực.</p>
+
+                            <p>Vào tháng 1, sau khi lực lượng ủy nhiệm của Iran và quân đội Mỹ đụng độ ở Iraq, ông Trump đã ra lệnh tấn công sát hại chỉ huy quyền lực Qassem Soleimani của Iran. Ông Biden nói rằng cuộc tấn công đưa Mỹ và Iran vào nguy cơ đụng độ.</p>
+
+                            <p>Ông Biden cũng muốn chấm dứt sự ủng hộ của Mỹ với cuộc chiến mà Ả rập Xê út dẫn đầu ở Yemen.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Không nhất quán</div>
+
+                        <div class="emag-content">
+                            <p>Ông Trump đặt câu hỏi về lợi ích của Mỹ khi can thiệp quân sự ở Trung Đông, đặc biệt là cuộc xâm lược Iraq năm 2003.</p>
+
+                            <p>Tuy nhiên, ông Trump đã gửi thêm quân tới khu vực sau khi rút quân, động thái làm gia tăng căng thẳng với Iran. Ông Trump là người ra lệnh không kích sát hại tướng Qassem Soleimani và bị Iran đáp trả bằng tên lửa hành trình.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emag-sec-title">Tiếp tục thỏa thuận hạt nhân Iran</div>
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Có nhưng đi kèm điều kiện</div>
+
+                        <div class="emag-content">
+                            <p>Ông Biden tuyên bố sẽ đối phó với Iran thông qua ngoại giao và tái gia nhập thỏa thuận hạt nhân với nhà nước Cộng hòa Hồi giáo chỉ khi Tehran tuân thủ các hạn chế với chương trình hạt nhân của mình.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Không</div>
+
+                        <div class="emag-content">
+                            <p>Ông Trump đưa Mỹ khỏi thỏa thuận hạt nhân với Iran, một thành tựu của Chính quyền Obama.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <img src="images/img-6.jpg" alt="" class="emag-sec-img">
+
+                <div class="emag-sec-title">Afghanistan</div>
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Đưa quân về nhà</div>
+
+                        <div class="emag-content">
+                            <p>Ông Biden tuyên bố sẽ đưa phần lớn quân đội Mỹ từ Afghanistan về nước và thu hẹp các hoạt động vào chống khủng bố.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Rút toàn bộ quân</div>
+
+                        <div class="emag-content">
+                            <p>Ông Trump tuyên bố muốn rút toàn bộ quân Mỹ khỏi Afghanistan để chấm dứt cuộc chiến dài nhất của Mỹ. Tuy nhiên, ông Trump chưa ấn định ngày.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emag-sec-title">Gặp gỡ lãnh đạo Triều Tiên</div>
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Không, trừ khi các điều kiện tiên quyết được đáp ứng</div>
+
+                        <div class="emag-content">
+                            <p>Ông Biden đã cáo buộc ông Trump từ bỏ những đòn bảy của Mỹ với vấn đề Triều Tiên để đổi lại rất ít thành tựu. Ông Biden tuyên bố sẽ không gặp ông Kim Jong Un nếu không có những điều kiện tiên quyết.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Có</div>
+
+                        <div class="emag-content">
+                            <p>Ông Trump đã gặp nhà lãnh đạo Triều Tiên Kim Jong Un 3 lần vào năm 2018 và 2019 nhưng những nỗ lực để Triều Tiên từ bỏ vũ khí hạt nhân của Chính quyền Trump vẫn đang bị đình trệ.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emag-sec-title">Quan hệ đồng minh</div>
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Nhiệt tình vun đắp</div>
+
+                        <div class="emag-content">
+                            <p>Ông Biden tuyên bố những đồng minh như NATO sẽ giúp Mỹ gỡ gạc lại những sự hủy hoại của ông Trump với vai trò lãnh đạo toàn cầu cũng như uy tín của nước Mỹ.</p>
+
+                            <p>Ông Biden cũng cảnh báo Nga, Trung Quốc và những nước đang cố can thiệp bầu cử Tổng thống Mỹ phải đối mặt với những hậu quả nghiêm trọng nếu ông được bầu.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Thờ ơ lạnh nhạt</div>
+
+                        <div class="emag-content">
+                            <p>Ông Trump đã khiến NATO và các đồng minh khác của mình tức giận. Ông Trump cũng từ chối những chỉ trích nhằm vào Tổng thống Nga Vladimir Putin ngay cả khi các quan chức tình báo Mỹ kết luận Nga can thiệp vào cuộc bầu cử Tổng thống Mỹ năm 2016.</p>
+
+                            <p>Vào tháng 6, ông Trump tuyên bố sẽ giảm số lượng quân Mỹ ở Đức xuống 9.500 người. Các trợ lý chiến dịch của ông Biden tuyên bố ông sẽ xem xét lại vấn đề này khi đắc cử.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="emag-section">
+            <div class="emag-sec-cover">
+                <img src="images/cover-7.jpg" alt="">
+
+                <div class="emag-sec-cover-desc">
+                    <img src="images/title-7.png" alt="" class="emag-sec-cover-title">
+
+                    <div class="emag-sec-sapo">
+                        <div class="w720">
+                            Chính sách với các công ty công nghệ lớn như Facebook, Alphabet là một vấn đề nóng trước cuộc bầu cử tổng thông năm 2020.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="emag-sec-main">
+                <div class="emag-sec-title">Các ông lớn công nghệ Mỹ</div>
+
+                <img src="images/caption.png" alt="" class="emag-cation">
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Đưa các gã khổng lồ vào tầm ngắm</div>
+
+                        <div class="emag-content">
+                            <p>Ông Biden, người từng là Phó tổng thống dưới Chính quyền Obama, khá thân thiện với Thung lũng Silicon. Tuy nhiên, ông gần đây đã chỉ trích Facebook và những gã khổng lồ công nghệ khác trong chiến dịch tranh cử của mình và đề xuất mức phí liên bang tối thiểu nhằm vào các công ty như Amazon.</p>
+
+                            <p>Ông Biden nói rằng phá bỏ những thứ như Facebook là “điều mà chúng ta nên xem xét kỹ lưỡng”.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Chỉ trích người này, ủng hộ người kia</div>
+
+                        <div class="emag-content">
+                            <p>Ông Trump có một mối quan hệ phức tạp với các công ty công nghệ. Ông thường xuyên chỉ trích Amazon và CEO Jeff Bezos của nó nhưng lại gặp Tim Cook của Apple.</p>
+
+                            <p>Chính quyền Trump đang tiến hành một cuộc điều tra chống độc quyền trên phạm vi rộng với các công ty công nghệ lớn nhưng cả ông và ông Biden đều đã ngừng kêu gọi phá bỏ những công ty này.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emag-sec-title">Điều chỉnh mạng xã hội</div>
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Ủng hộ</div>
+
+                        <div class="emag-content">
+                            <p>Ông Biden, người có xung đột với Facebook về các chính sách của họ về quảng cáo và thao túng chính trị, là ứng viên Tổng thống Dân chủ duy nhất kêu gọi thu hồi Mục 230 của Đạo luật Chuẩn mực giao tiếp, một luật quan trọng góp phần giúp các nền tảng trực tuyến như Facebook và Twitter không phải chịu trách nhiệm pháp lý với các bài viết mà người dùng đăng tải trên nền tảng của mình.</p>
+
+                            <p>Ông Biden gần đây kêu gọi Facebook kiểm tra sự thực trong các quảng cáo của các chính trị gia.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Ủng hộ</div>
+
+                        <div class="emag-content">
+                            <p>Ông Trump, người chiến thắng năm 2016 với sự giúp đỡ mạnh mẽ của các nền tảng số, từ lâu dã cáo buộc các công ty này kiểm duyệt chống lại những người bảo thủ dù không đưa ra bằng chứng.</p>
+
+                            <p>Sau khi bị Twitter dán nhãn không tin cậy trong các dòng thông điệp của mình lần đầu hồi tháng 5, ông Trump đã ký một quy định hành pháp giám sát sự kiểm duyệt của các công ty công nghệ. Ông Trump cũng muốn bỏ mục 230 trong Đạo luật Chuẩn mực giao tiếp như ông Biden.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emag-sec-title">Tăng cường bảo vệ dữ liệu cá nhân</div>
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Đúng</div>
+
+                        <div class="emag-content">
+                            <p>Ông Biden cho rằng Mỹ nên đặt ra các tiêu chuẩn như của châu  u trong bảo vệ người dùng.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Không nhất quán</div>
+
+                        <div class="emag-content">
+                            <p>Ông Trump ủng hộ Quốc hội nhằm có luật về quyền riêng tư của người dùng và chỉ trích Apple khi không chịu mở khoá những chiếc điện thoại do tội phạm sử dụng.</p>
+
+                            <p>Tuy nhiên, những người ủng hộ quyền riêng tư lại chỉ trích Chính quyền Trump có những hành động vi phạm quyền riêng tư của người nhập cư.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emag-sec-title">Khắc phục khoảng cách số</div>
+
+                <div class="emag-sec-row">
+                    <div class="emag-sec-column wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Ủng hộ</div>
+
+                        <div class="emag-content">
+                            <p>Lên kế hoạch đầu tư 20 tỷ USD vào cơ sở hạ tầng băng thông rộng ở các vùng nông thôn và tăng gấp 3 tài trợ để mở rộng khả năng tiếp cận công nghệ của các gia đình ở nông thôn. Tiền cho chương trình này được lấy từ việc tăng thuế với người giàu.</p>
+                        </div>
+                    </div>
+
+                    <div class="emag-sec-column wow fadeInRight" data-wow-duration="0.6s" data-wow-delay="0.2s">
+                        <div class="emag-sub">Ủng hộ</div>
+
+                        <div class="emag-content">
+                            <p>Đại dịch Covid-19 đã thúc đẩy giáo dục và làm việc trực tuyến, điều bộc lộ sự bất bình đẳng trong việc tiếp cận băng thông rộng tốc độ cao.</p>
+
+                            <p>Ông Trump cho biết ông cam kết mọi công dân đều có thể truy cập Internet tốc độ cao. Hồi đầu năm, Ủy ban Truyền thông Liên bang đã phê duyệt khoản chi 20 tỷ USD để mở rộng băng thông Internet cho khu vực nông thôn.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <img src="images/img-6.jpg" alt="" class="emag-sec-img">
+
+                <img src="images/credit.png" alt="" class="emag-sec-img">
             </div>
         </div>
     </div>
