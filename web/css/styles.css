@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+img {
+    vertical-align: middle;
+    max-width: 100%;
+}
+.w660 {
+    width: 660px;
+    margin: 0 auto;
+}
+.w720 {
+    width: 720px;
+    margin: 0 auto;
+}
+.emag-cover {
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+}
+.emag-cover img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.emag-cover-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.emag-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    object-position: top!important;
+}
+.emag-section {
+    background-color: #f5f5f5;
+    background-image: url('../images/bg-1.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-attachment: fixed;
+    padding-bottom: 100px;
+}
+.emag-sec-cover {
+    position: relative;
+}
+.emag-sec-cover img {
+    width: 100%;
+}
+.emag-sec-sapo {
+    line-height: 26px;
+    margin-top: 60px;
+    font-family: 'NotoSerif', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 17px;
+    text-align: center;
+}
+.emag-sec-title {
+    font-family: 'Americana';
+    font-size: 48px;
+    text-align: center;
+    margin: 40px auto;
+}
+.emag-sec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 auto;
+    width: 78.125%;
+}
+.emag-sec-column {
+    width: calc(50% - 15px);
+    height: 100%;
+}
+.emag-sub {
+    color: #fff;
+    font-family: 'Americana';
+    font-size: 24px;
+    line-height: 44px;
+    padding: 0 20px;
+}
+.emag-sec-column:first-child .emag-sub {
+    background-color: #344e88;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.emag-sec-column:last-child .emag-sub {
+    background-color: #dc0101;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.emag-content {
+    background-color: #fff;
+    padding: 20px;
+}
+.emag-content p {
+    font-family: 'NotoSerif', serif;
+    font-size: 17px;
+    line-height: 26px;
+}
+.emag-content p:not(:last-child) {
+    margin-bottom: 30px;
+}
+.emag-sec-img {
+    display: block;
+    width: 78.125%;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.emag-cation {
+    display: block;
+    margin: 0 auto;
+    width: 78.125%;
+}
