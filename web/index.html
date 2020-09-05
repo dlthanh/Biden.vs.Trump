@@ -22,9 +22,10 @@
         };
 
         $(document).ready(function() {
-            // $('.emag-cover-title').css({
-            //     'transform': 'translate(0px, ' + ($(window).height() / 2) + 'px)'
-            // });
+            $('.emag-sec-cover').each(function() {
+                var height = $(window).height();
+                $(this).height(height * 2.5);
+            })
 
             $('.emag-sec-row').each(function() {
                 $(this).find('.emag-content').equalHeights()
@@ -50,8 +51,20 @@
                     var offsetParent = $(this).parents('.emag-sec-cover').offset().top - parentHeight
 
                     $(this).css({
-                        'transform': 'translate(0px, ' + (offsetParent - scrollTop + parentHeight) + 'px)'
+                        'transform': 'translate(0px, ' + (offsetParent - scrollTop + parentHeight) / 2 + 'px)'
                     });
+                })
+
+                $('.emag-sec-cover').each(function() {
+                    var image = $(this).find('img').eq(0);
+                    var anchor = $(this).offset().top + image.height();
+                    if(anchor - scrollTop <= $(window).height()) {
+                        image.css({
+                            'transform': 'translate(0px, ' + ($(window).height() - anchor + scrollTop) + 'px)'
+                        });
+                    } else {
+                        image.removeAttr('style')
+                    }
                 })
             });
         })
@@ -927,7 +940,7 @@
                     </div>
                 </div>
 
-                <img src="images/img-6.jpg" alt="" class="emag-sec-img">
+                <img src="images/img-7.jpg" alt="" class="emag-sec-img">
 
                 <img src="images/credit.png" alt="" class="emag-sec-img">
             </div>

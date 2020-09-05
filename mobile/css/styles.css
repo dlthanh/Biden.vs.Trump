@@ -14,7 +14,7 @@ img {
 }
 .emag-img {
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 .emag-content > p {
     font-family: 'NotoSerif', serif;
@@ -27,13 +27,21 @@ img {
     font-weight: 700;
     font-style: italic;
     text-align: center;
-    margin-bottom: 60px!important;
+    margin-bottom: 15px!important;
 }
 .emag-title {
     font-family: 'Americana'!important;
-    font-size: 18px!important;
+    font-size: 20px!important;
     text-align: center;
-    margin-top: 30px;
+    margin: 5px 0!important;
+    color: #fff;
+    padding: 5px 0!important;
+}
+.emag-title.red {
+    background-color: #dc0101;
+}
+.emag-title.blue {
+    background-color: #344e88;
 }
 .trump {
     background-color: #f9ece7;
@@ -75,6 +83,9 @@ img {
     width: 100%;
     margin-bottom: 5px;
 }
+.emag-image + .emag-title {
+    margin-top: 0!important;
+}
 .emag-credit {
     margin-top: 30px;
     margin-bottom: 60px;
@@ -82,4 +93,14 @@ img {
     font-family: 'Gotham';
     font-size: 15px;
     line-height: 24px;
+}
+.emag-lg-title {
+    font-family: 'Americana'!important;
+    font-size: 24px!important;
+    line-height: 30px!important;
+    text-transform: uppercase;
+    margin-bottom: 15px!important;
+    margin-top: 15px;
+    text-align: center;
+    padding: 0!important;
 }
