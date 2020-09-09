@@ -36,10 +36,20 @@
             $(window).scroll(function() {
                 var scrollTop = $(window).scrollTop();
 
-                if(scrollTop > 150) {
-                    $('.emag-bg').addClass('fixed');
+                if(scrollTop > 0) {
+                    $('.emag-cover-wrapper').addClass('fixed');
                 } else {
-                    $('.emag-bg').removeClass('fixed');
+                    $('.emag-cover-wrapper').removeClass('fixed');
+                }
+
+                if (scrollTop >= $('.emag-desc').offset().top) {
+                    $('.emag-cover').addClass('opacity');
+                    $('.emag-desc').addClass('opacity');
+                    $('.emag-section.first').addClass('opacity');
+                } else {
+                    $('.emag-cover').removeClass('opacity');
+                    $('.emag-desc').removeClass('opacity');
+                    $('.emag-section.first').removeClass('opacity');
                 }
                 
                 $('.emag-cover-title').css({
@@ -73,9 +83,11 @@
 <body>
     <div class="emag-wrapper">
         <div class="emag-cover">
-            <img src="images/cover.jpg" alt="">
-            <img src="images/title.png" alt="" class="emag-cover-title">
-            <img src="images/bg.png" alt="" class="emag-bg">
+            <div class="emag-cover-wrapper">
+                <img src="images/cover.jpg" alt="">
+                <img src="images/title.png" alt="" class="emag-cover-title">
+                <img src="images/bg.png" alt="" class="emag-bg">
+            </div>
         </div>
 
         <div class="emag-desc">
@@ -86,7 +98,7 @@
             </div>
         </div>
 
-        <div class="emag-section">
+        <div class="emag-section first">
             <div class="emag-sec-cover">
                 <img src="images/cover-1.jpg" alt="">
 
